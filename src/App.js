@@ -12,9 +12,9 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <Header/>
-      <Switch>
+    <div className="grid-layout content-font">
+      <Header />
+      <Switch >
         <Route exact path="/">
           <Services />
         </Route>
@@ -22,10 +22,10 @@ function App() {
           <Culture />
         </Route>
         <Route path="/contact">
-          <Contacts />
+          <Contacts/>
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </div>
     
   );

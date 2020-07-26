@@ -1,0 +1,32 @@
+/* The font stylings are done here */
+
+.content-font{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 48px;
+
+    letter-spacing: 0.15px;
+
+    color: #000000;
+
+    padding-bottom: 48px;
+}
+
+
+p{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 29px;
+
+    letter-spacing: 0.15px;
+
+    color: #000000;
+}

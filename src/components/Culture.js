@@ -1,19 +1,26 @@
 import React from 'react'
+import TextImgComponent  from './TextImgComponent'
 
 export default function Culture() {
     return (
-        <div>
-            Some other set of gibrish go here
-            This for culture sake for victory sake build your company
-            <div>
-            Believe or not believe, Lorem Ipsum is not just a random text.
-            He has roots in Latin literature from 45 BC. BC, which makes it 
-            over 2000 years old. Richar McClintock, a Latin professor at Hampden-Sydney 
-            College in Virgnia, examined some unclear words, "consectetur", 
-            a Lorem Ipsum passage and found an irrefutable source. Lorem Ipsum
-            comes from section 1.10.32 and 1.10.33 of the "de Finibus Bonorum et 
-            Malorum" (The extremes of good and bad) by Cicero, written 45 BC. 
-        </div>
+        <div className="mycontent" >
+            <TextImgComponent header1="Life at DeepProAI" reverse={false}>
+            As a fully distributed company we’ve found a formula that
+             works. We truly believe and practice a work-life balance 
+             which allows us to create our best work. 
+            </TextImgComponent>
+
+            <TextImgComponent header1="Working together drives our curiosity" reverse={true}>
+            We blend our knowledge and skill across disciplines in an effort to 
+            both teach and learn from ourselves, our clients, and our greater community.
+            </TextImgComponent>
+
+            <TextImgComponent header1="Always creating and growing" reverse={false}>
+            The web application landscape doesn’t stand still.
+             We know where the web is going (and, in some cases, 
+             we’re leading the way). We’re able to ensure our customers and 
+             community are ready to take full advantage of that future.
+            </TextImgComponent>
         </div>
     )
 }

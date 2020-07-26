@@ -2,11 +2,9 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div>
-            <a>Services</a>
-            <a>Capabilities</a>
-            <a>Compan0y</a>
-            <a>Connect</a>
+        <div className="footer">
+            <h2>Let's build together</h2>
+            <button>Connect with us</button>
         </div>
     )
 }

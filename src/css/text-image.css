@@ -1,0 +1,24 @@
+/* styling for the TextImgComponent goes here */
+
+.txt-img-container{
+    display: flex;
+}
+
+.txt-img-container-reversed{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.txt-img-text{
+    align-self: center;
+    padding-right: 140px;
+}
+
+.txt-img-text-reversed{
+    align-self: center;
+    padding-left: 140px;
+}
+
+.txt-img-image{
+
+}
