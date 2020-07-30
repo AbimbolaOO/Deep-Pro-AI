@@ -1,24 +1,29 @@
 /* styling for the TextImgComponent goes here */
 
-.txt-img-container{
-    display: flex;
+.txt-img-container {
+  display: flex;
+  height: 470px;
+  margin-bottom: 200px;
 }
 
-.txt-img-container-reversed{
-    display: flex;
-    flex-direction: row-reverse;
+.txt-img-container-reversed {
+  display: flex;
+  height: 470px;
+  flex-direction: row-reverse;
+  margin-bottom: 200px;
 }
 
-.txt-img-text{
-    align-self: center;
-    padding-right: 140px;
+.txt-img-text {
+  align-self: center;
+  padding-left: 10px;
+  padding-right: 130px;
 }
 
-.txt-img-text-reversed{
-    align-self: center;
-    padding-left: 140px;
+.txt-img-text-reversed {
+  align-self: center;
+  padding-left: 140px;
+  padding-right: 10px;
 }
 
-.txt-img-image{
-
+.txt-img-image {
 }

@@ -1,30 +1,37 @@
 /* Layout in which all the pages follow*/
 
-.grid-layout{
-    
-    display: grid;
-    grid-template-areas: "header header"
-                          "mycontent mycontent"
-                          "footer footer";
-    width: 1210px;
-    margin: 0 auto;
-    padding: 10px;
-    /* The code below is for debuging */
-    border: 3px solid black;
+.grid-layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "mycontent mycontent"
+    "footer footer"
+    "copyright copyright";
+  max-width: 1210px;
+  margin: 0 auto;
+  /* padding: 10px; */
+  /* The code below is for debuging */
+  /* border: 1px solid black; */
 }
 
-.header{
-    grid-area: header;
-    margin-top: 46px;
-    margin-bottom: 58px;
+.header {
+  grid-area: header;
+  margin-top: 46px;
+  margin-bottom: 58px;
 }
 
-.mycontent{
-    grid-area: mycontent;
+.mycontent {
+  grid-area: mycontent;
 }
 
-.footer{
-    grid-area: footer;
-    height: 208px;
+.footer {
+  grid-area: footer;
+  height: 208px;
+}
 
+.copy-right {
+  grid-area: copyright;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 10px 0;
 }

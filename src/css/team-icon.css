@@ -1,0 +1,12 @@
+/* The styling for our team icon goes here */
+.team-area {
+  margin-bottom: 200px;
+}
+
+.team-images {
+  display: flex;
+}
+
+.team-member {
+  padding: 0 40px;
+}

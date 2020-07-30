@@ -1,20 +1,16 @@
 /* Header css stylings goes here */
 
-.header-style{
-    display: flex;
-    justify-content: space-between;
+.header-style {
+  display: flex;
+  justify-content: space-between;
 }
 
-.header-logo{
-    flex-grow: 1;
+.header-logo {
+  flex-grow: 1;
 }
 
-.header-links{
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-evenly; 
-}
-
-.header-link-item{
-    
+.header-links {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
 }
