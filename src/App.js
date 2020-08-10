@@ -1,17 +1,20 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Services from "./components/Services";
-import Culture from "./components/Culture";
-import Contacts from "./components/Contact";
+import { Header, Footer, Services, Culture, Contact } from "./components/";
+import styled from "styled-components";
 
-import "./App.css";
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 10px;
+`;
 
 function App() {
   return (
-    <div className="grid-layout content-font">
+    <Main>
       <Header />
       <Switch>
         <Route exact path="/">
@@ -21,12 +24,11 @@ function App() {
           <Culture />
         </Route>
         <Route path="/contact">
-          <Contacts />
+          <Contact />
         </Route>
       </Switch>
       <Footer />
-      <div className="copy-right">DeepProAI &#169; 2020</div>
-    </div>
+    </Main>
   );
 }
 

@@ -1,23 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { typeScale, fontFamily } from "../utils";
 
-export default function Header() {
+const MyHead = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 40px;
+`;
+
+const UnOrderedList = styled.ul`
+  flex-basis: 45%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+const ListItem = styled.li`
+  display: flex;
+`;
+
+const Styledlink = styled(Link)`
+  font-size: ${typeScale.links};
+  font-family: ${fontFamily.primary};
+`;
+
+const LogoArea = styled.div``;
+
+export function Header() {
   return (
-    <div className="header header-style">
-      <div className="header-logo">
-        <Link to="/">Companies logo</Link>
-      </div>
-      <ul className="header-links">
-        <li className="header-link-item">
-          <Link to="/">Services</Link>
+    <MyHead>
+      <LogoArea>
+        <Styledlink to="/">DeepProAI</Styledlink>
+      </LogoArea>
+      <UnOrderedList>
+        <ListItem>
+          <Styledlink to="/">Services</Styledlink>
+        </ListItem>
+        <li>
+          <Styledlink to="/culture">Culture</Styledlink>
         </li>
-        <li className="header-link-item">
-          <Link to="/culture">Culture</Link>
+        <li>
+          <Styledlink to="/contact">Contact</Styledlink>
         </li>
-        <li className="header-link-item">
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
-    </div>
+      </UnOrderedList>
+    </MyHead>
   );
 }
