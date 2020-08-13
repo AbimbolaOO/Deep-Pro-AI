@@ -4,6 +4,7 @@ import { icons } from "../assets";
 import { fontFamily } from "../utils";
 import { HTwo, Button } from "./UiComponents";
 import styled from "styled-components";
+import media from "../media";
 
 // background-color: ${(props) => props.theme.primaryDarkColor};
 const FooterSection = styled.footer`
@@ -12,14 +13,25 @@ const FooterSection = styled.footer`
   border-top: 30px solid ${(props) => props.theme.primaryDarkColor};
   height: 290px;
   justify-content: space-between;
-  padding: 50px 10px 0 10px;
+  padding-top: 40px;
+
+  ${media.phones`
+    height: auto;
+    flex-direction: column;
+    padding-top: 40px;
+  `}
 `;
 
 const SocialSections = styled.ul`
-  flex-basis: 50%;
+  flex-basis: 20%;
   order: 3;
   display: flex;
   padding: 0;
+  justify-content: space-around;
+  ${media.phones`
+  width: 60%;
+    align-self: left;
+  `}
 `;
 
 export const ButtonLink = styled(Link)`
@@ -28,8 +40,12 @@ export const ButtonLink = styled(Link)`
   display: flex;
   height: 50px;
   flex-direction: row-reverse;
+  ${media.phones`
+  flex-basis: 100%;
+  flex-direction: row;
+  `}
 `;
-const ListElement = styled.ul``;
+const ListElement = styled.li``;
 
 const CopyWrite = styled.p`
   font-family: ${fontFamily.primary};

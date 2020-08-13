@@ -7,7 +7,6 @@ export function Services() {
     <div className="mycontent">
       <UiCardComponent
         header1="Always at your service"
-        reverse={false}
         image={Illustration.imageOne}
       >
         From research to vision to implementation, DeeproAI translates bold

@@ -1,16 +1,27 @@
 import React from "react";
 import { HTwo, Paragraphs } from "./UiComponents";
 import styled from "styled-components";
+import media from "../media";
 
 // export const
 const TextSection = styled.section`
   display: flex;
   justify-content: space-between;
   margin-bottom: 200px;
+
+  ${media.phones`
+  flex-direction: column;
+  margin-bottom: 100px;
+  `}
 `;
 
 const Element = styled.section`
   flex-basis: 30%;
+  ${media.phones`
+  flex-basis: 100%;
+  flex-direction: column;
+  margin-bottom: 50px;
+  `}
 `;
 
 export default function TextCards() {

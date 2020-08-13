@@ -2,6 +2,7 @@ import React from "react";
 import { HOne, Button, Paragraphs } from "./UiComponents";
 import styled from "styled-components";
 import { fontFamily, fontWeight, typeScale, lineHeight } from "../utils";
+import media from "../media";
 
 const ContactShell = styled.div`
   width: calc(100%-310);
@@ -10,6 +11,9 @@ const ContactShell = styled.div`
   flex-direction: column;
   margin: 0 auto;
   margin-bottom: 200px;
+  ${media.phones`
+    display 100%;
+  `}
 `;
 const FormContainer = styled.form`
   display: grid;
@@ -39,6 +43,20 @@ const FormContainer = styled.form`
   .submitBtn {
     grid-area: submit;
   }
+
+  ${media.phones`
+    display 100%;
+
+    display: grid;
+  grid-template-areas:
+    "name"
+    "email"
+    "phone"
+    "company"
+    "textarea"
+    "submit";
+
+  `}
 `;
 
 const FieldContainer = styled.div`
