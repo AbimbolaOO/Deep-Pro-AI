@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { applyStyleModifiers } from "styled-components-modifiers";
 import { fontFamily, fontWeight, lineHeight, typeScale } from "../utils";
 
+// Frammer motion animation library
+import { motion } from "framer-motion";
+
+// Htag modifiers goes below
 const HTAG_MODIFIER_CONFIG = {
   flexBasis: () => `
     flex-basis: 50%;
@@ -11,6 +15,7 @@ const HTAG_MODIFIER_CONFIG = {
   `,
 };
 
+// Paragraph component modifiers goes below
 const PARAGRAPHS_MODIFIER_CONFIG = {
   font: ({ theme }) => `
     font-size: 1.5rem;
@@ -21,6 +26,7 @@ const PARAGRAPHS_MODIFIER_CONFIG = {
   `,
 };
 
+// The h1 component below
 export const HOne = styled.h1`
   font-family: ${fontFamily.secondary};
   font-style: normal;
@@ -33,6 +39,7 @@ export const HOne = styled.h1`
   color: ${(props) => props.theme.primaryLargeTextColor};
 `;
 
+// The h2 component below
 export const HTwo = styled.h2`
   font-family: ${fontFamily.secondary};
   font-style: normal;
@@ -46,6 +53,7 @@ export const HTwo = styled.h2`
   ${applyStyleModifiers(HTAG_MODIFIER_CONFIG)};
 `;
 
+// Paragraphs component below
 export const Paragraphs = styled.p`
   font-family: ${fontFamily.primary};
   font-style: normal;
@@ -59,7 +67,8 @@ export const Paragraphs = styled.p`
   ${applyStyleModifiers(PARAGRAPHS_MODIFIER_CONFIG)};
 `;
 
-export const Button = styled.button`
+// Button conponent below
+export const Button = styled(motion.button)`
   font-family: ${fontFamily.primary};
   font-style: normal;
   font-weight: ${fontWeight.secondary};
@@ -74,4 +83,14 @@ export const Button = styled.button`
   display: inline-block;
   padding: 0 20px;
   color: ${(props) => props.theme.secondaryDarkWhitelargeTextColor};
+`;
+
+// Requirement text below
+export const RequiredStyle = styled.p`
+  color: ${(props) => props.theme.errorColor};
+  font-family: ${fontFamily.primary};
+  margin: 0;
+  font-size: 0.7rem;
+  position: relative;
+  bottom: -8px;
 `;

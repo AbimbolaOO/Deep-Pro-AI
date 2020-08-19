@@ -1,8 +1,14 @@
-import React from "react";
-import { HOne, Button, Paragraphs } from "./UiComponents";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { HOne, Button, Paragraphs, RequiredStyle } from "./UiComponents";
+import Modal from "./Modal";
 import styled from "styled-components";
 import { fontFamily, fontWeight, typeScale, lineHeight } from "../utils";
 import media from "../media";
+
+// Fontawesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 const ContactShell = styled.div`
   width: calc(100%-310);
@@ -95,6 +101,14 @@ const Input = styled.input`
   background: none;
 
   color: #000000;
+  /* Code below help to remove chome autofill background color */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-background: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -118,51 +132,101 @@ const TextArea = styled.textarea`
   overflow: auto;
 `;
 
-export function Contact() {
+const Required = () => {
   return (
-    <ContactShell>
-      <HOne>Let's build great things together.</HOne>
-      <FormContainer>
-        {/* name field goes here */}
-        <FieldContainer className="namefield">
-          <Paragraphs modifiers="labelFont" as="label" htmlFor="name">
-            Name
-          </Paragraphs>
-          <Input id="name" type="text" name="name" />
-        </FieldContainer>
-        {/* Email field goes here */}
-        <FieldContainer className="emailfield">
-          <Paragraphs modifiers="labelFont" as="label" htmlFor="email">
-            Email
-          </Paragraphs>
-          <Input id="email" type="email" name="emasil" />
-        </FieldContainer>
-        {/*  Company field goes here*/}
-        <FieldContainer className="companyfield">
-          <Paragraphs modifiers="labelFont" as="label" htmlFor="company">
-            Comapny (optional)
-          </Paragraphs>
-          <Input id="company" type="text" name="company" />
-        </FieldContainer>
-        {/* Phone credentials goes here */}
-        <FieldContainer className="phonefield">
-          <Paragraphs modifiers="labelFont" as="label" htmlFor="phone">
-            Phone{" "}
-          </Paragraphs>
-          <Input id="phone" type="phone" name="name" />
-        </FieldContainer>
-        {/* textarea field goes here */}
-        <TextareaContainer className="textareafield">
-          <Paragraphs modifiers="labelFont" as="label" htmlFor="textarea">
-            How can we help
-          </Paragraphs>
-          <TextArea id="textarea" rows="11"></TextArea>
-        </TextareaContainer>
-        {/* Submit button goes here */}
-        <div className="submitBtn">
-          <Button as="input" type="submit" value="Connext with us" />
-        </div>
-      </FormContainer>
-    </ContactShell>
+    <RequiredStyle>
+      <FontAwesomeIcon icon={faExclamationTriangle} />
+      This is required
+    </RequiredStyle>
+  );
+};
+
+export function Contact() {
+  const [showModal, setShowModal] = useState(false);
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    setShowModal(!showModal);
+    console.log("this is show modal", showModal);
+  };
+
+  return (
+    <>
+      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <ContactShell>
+        <HOne>Let's build great things together.</HOne>
+        {/* Form implementation starts from here */}
+        <FormContainer onSubmit={handleSubmit(onSubmit)}>
+          {/* name field goes here */}
+          <FieldContainer className="namefield">
+            <Paragraphs modifiers="labelFont" as="label" htmlFor="name">
+              Name
+            </Paragraphs>
+            <Input
+              id="name"
+              type="text"
+              name="name"
+              ref={register({ required: true })}
+            />
+            {errors.name && <Required />}
+          </FieldContainer>
+          {/* Email field goes here */}
+          <FieldContainer className="emailfield">
+            <Paragraphs modifiers="labelFont" as="label" htmlFor="email">
+              Email
+            </Paragraphs>
+            <Input
+              id="email"
+              type="email"
+              name="email"
+              ref={register({ required: true })}
+            />
+            {errors.email && <Required />}
+          </FieldContainer>
+          {/*  Company field goes here*/}
+          <FieldContainer className="companyfield">
+            <Paragraphs modifiers="labelFont" as="label" htmlFor="company">
+              Comapny (optional)
+            </Paragraphs>
+            <Input
+              id="company"
+              type="text"
+              name="company"
+              ref={register({ required: true })}
+            />
+            {errors.company && <Required />}
+          </FieldContainer>
+          {/* Phone credentials goes here */}
+          <FieldContainer className="phonefield">
+            <Paragraphs modifiers="labelFont" as="label" htmlFor="phone">
+              Phone
+            </Paragraphs>
+            <Input
+              id="phone"
+              type="phone"
+              name="phone"
+              ref={register({ required: true })}
+            />
+            {errors.phone && <Required />}
+          </FieldContainer>
+          {/* textarea field goes here */}
+          <TextareaContainer className="textareafield">
+            <Paragraphs modifiers="labelFont" as="label" htmlFor="textarea">
+              How can we help
+            </Paragraphs>
+            <TextArea
+              id="textarea"
+              rows="11"
+              name="help"
+              ref={register}
+            ></TextArea>
+          </TextareaContainer>
+          {/* Submit button goes here */}
+          <div className="submitBtn">
+            <Button as="input" type="submit" value="Connect with us" />
+          </div>
+        </FormContainer>
+      </ContactShell>
+    </>
   );
 }

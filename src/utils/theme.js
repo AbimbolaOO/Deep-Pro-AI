@@ -10,4 +10,5 @@ export const defaultTheme = {
   primaryLargeTextColor: "#9C27B0",
   secondaryDarkWhitelargeTextColor: "#F8F8F8",
   primaryBlackSmallTextColor: "rgba(0, 0, 0, 0.8)",
+  errorColor: "#fe5f06",
 };

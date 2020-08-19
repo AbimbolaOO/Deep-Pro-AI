@@ -72,7 +72,6 @@ export function Header() {
   const [menuState, setMenuState] = useState(false);
   const handleClick = () => {
     setMenuState(!menuState);
-    console.log(!menuState);
   };
 
   return (

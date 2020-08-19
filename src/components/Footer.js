@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { icons } from "../assets";
 import { fontFamily } from "../utils";
 import { HTwo, Button } from "./UiComponents";
+
 import styled from "styled-components";
 import media from "../media";
 
@@ -22,6 +23,7 @@ const FooterSection = styled.footer`
   `}
 `;
 
+// An UnOrdered list of social media icons
 const SocialSections = styled.ul`
   flex-basis: 20%;
   order: 3;
@@ -34,6 +36,7 @@ const SocialSections = styled.ul`
   `}
 `;
 
+// Button link tag
 export const ButtonLink = styled(Link)`
   flex-basis: 50%;
   order: 2;
@@ -45,8 +48,11 @@ export const ButtonLink = styled(Link)`
   flex-direction: row;
   `}
 `;
+
+// list elements
 const ListElement = styled.li``;
 
+// Copywite syles goes here
 const CopyWrite = styled.p`
   font-family: ${fontFamily.primary};
   padding: 10px 0;
