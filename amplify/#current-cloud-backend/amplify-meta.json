@@ -1,0 +1,22 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-deepproai-prod-04040-authRole",
+            "UnauthRoleArn": "arn:aws:iam::946325471440:role/amplify-deepproai-prod-04040-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::946325471440:role/amplify-deepproai-prod-04040-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-deepproai-prod-04040-deployment",
+            "UnauthRoleName": "amplify-deepproai-prod-04040-unauthRole",
+            "StackName": "amplify-deepproai-prod-04040",
+            "StackId": "arn:aws:cloudformation:us-east-2:946325471440:stack/amplify-deepproai-prod-04040/681418e0-e275-11ea-aae6-0a123d686b08",
+            "AmplifyAppId": "d286fqdcrw3rww"
+        }
+    },
+    "hosting": {
+        "amplifyhosting": {
+            "service": "amplifyhosting",
+            "type": "cicd",
+            "lastPushTimeStamp": "2020-08-19T23:46:16.136Z"
+        }
+    }
+}
