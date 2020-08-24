@@ -4,7 +4,7 @@ import TextComp from "./TextCards";
 import Ourteam from "./Ourteam";
 import { Illustration } from "../assets";
 
-export function Culture() {
+export default function Culture() {
   return (
     <div className="mycontent">
       <UiCardComponent

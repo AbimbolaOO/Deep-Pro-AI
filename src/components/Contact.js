@@ -141,7 +141,7 @@ const Required = () => {
   );
 };
 
-export function Contact() {
+export default function Contact() {
   const [showModal, setShowModal] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
@@ -188,12 +188,7 @@ export function Contact() {
             <Paragraphs modifiers="labelFont" as="label" htmlFor="company">
               Comapny (optional)
             </Paragraphs>
-            <Input
-              id="company"
-              type="text"
-              name="company"
-              ref={register({ required: true })}
-            />
+            <Input id="company" type="text" name="company" ref={register()} />
             {errors.company && <Required />}
           </FieldContainer>
           {/* Phone credentials goes here */}

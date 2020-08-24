@@ -98,7 +98,7 @@ export function Header() {
       <StyledMenuBars
         onClick={handleClick}
         icon={menuState ? faTimes : faBars}
-        size="3x"
+        size="2x"
         color={
           menuState
             ? defaultTheme.secondaryDarkWhitelargeTextColor

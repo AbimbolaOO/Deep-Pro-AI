@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Switch, Route } from "react-router-dom";
-
-import { Header, Footer, Services, Culture, Contact } from "./components/";
 import styled from "styled-components";
+
+import { Header, Footer, Services } from "./components/";
+const Culture = lazy(() => import("./components/Culture"));
+const Contact = lazy(() => import("./components/Contact"));
 
 const Main = styled.main`
   display: flex;
@@ -20,12 +22,10 @@ function App() {
         <Route exact path="/">
           <Services />
         </Route>
-        <Route path="/culture">
-          <Culture />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
+        <Suspense fallback={<div>Looding...</div>}>
+          <Route path="/culture" component={Culture} />
+          <Route path="/contact" component={Contact} />
+        </Suspense>
       </Switch>
       <Footer />
     </Main>
