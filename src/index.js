@@ -8,6 +8,10 @@ import { ThemeProvider } from "styled-components";
 
 import { defaultTheme, GlobalStyles } from "./utils";
 
+import Amplify from "aws-amplify";
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme}>

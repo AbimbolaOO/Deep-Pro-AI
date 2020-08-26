@@ -6,6 +6,12 @@ import styled from "styled-components";
 import { fontFamily, fontWeight, typeScale, lineHeight } from "../utils";
 import media from "../media";
 
+/* First import the API category from Amplify */
+import { API } from "aws-amplify";
+
+/* Next, import the createContact mutation */
+import { createContact } from "../graphql/mutations";
+
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
@@ -132,6 +138,7 @@ const TextArea = styled.textarea`
   overflow: auto;
 `;
 
+// The required component ==> used in form validation
 const Required = () => {
   return (
     <RequiredStyle>
@@ -141,22 +148,44 @@ const Required = () => {
   );
 };
 
+// Contact components
 export default function Contact() {
   const [showModal, setShowModal] = useState(false);
+  const [status, setStatus] = useState(false);
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  // Create a function that will create a new contact
+  async function submitNewContact(data) {
+    try {
+      await API.graphql({
+        query: createContact,
+        variables: {
+          input: {
+            ...data,
+          },
+        },
+      });
+      setStatus(true);
+      console.log("New contact created!");
+    } catch (err) {
+      console.log({ err });
+    }
     setShowModal(!showModal);
-    console.log("this is show modal", showModal);
-  };
+  }
 
   return (
-    <>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+    <React.Fragment>
+      {/* Displays the modal below when form is submitted */}
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        status={status}
+      />
+      {/* Contact page contents are implemented below */}
       <ContactShell>
         <HOne>Let's build great things together.</HOne>
         {/* Form implementation starts from here */}
-        <FormContainer onSubmit={handleSubmit(onSubmit)}>
+        <FormContainer onSubmit={handleSubmit(submitNewContact)}>
           {/* name field goes here */}
           <FieldContainer className="namefield">
             <Paragraphs modifiers="labelFont" as="label" htmlFor="name">
@@ -222,6 +251,6 @@ export default function Contact() {
           </div>
         </FormContainer>
       </ContactShell>
-    </>
+    </React.Fragment>
   );
 }

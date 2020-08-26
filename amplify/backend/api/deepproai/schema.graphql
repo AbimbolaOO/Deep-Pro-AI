@@ -1,0 +1,8 @@
+type ContactBook @model(mutations: { create: "createContact" }) {
+  id: ID!
+  name: String!
+  phone: String!
+  help: String
+  email: String!
+  company: String
+}

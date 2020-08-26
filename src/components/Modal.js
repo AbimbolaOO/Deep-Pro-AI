@@ -57,8 +57,6 @@ const ModalItems = styled(motion.div)`
 export default function Modal({ showModal, setShowModal, status }) {
   const handleClick = () => {
     setShowModal(!showModal);
-    console.log("modal showModal", showModal);
-    console.log("modal is here", status);
   };
 
   return (

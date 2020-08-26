@@ -22,7 +22,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: ${fontFamily.secondary}
+  font-family: ${fontFamily.secondary};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
